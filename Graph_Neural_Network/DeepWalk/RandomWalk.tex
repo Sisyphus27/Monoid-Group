@@ -1,0 +1,45 @@
+\def\SetClass{article}
+\documentclass{\SetClass}
+\usepackage[ruled,linesnumbered]{algorithm2e}
+\usepackage{amsfonts}
+\begin{document}
+%algorithm1
+\begin{algorithm}
+\caption{RandomWalk}\label{algorithm}
+
+\KwIn{Graph $G(V,E)$, vertex $v_{i}$, walk length $t$}
+\KwOut{A vertex chosen at random from the neighbors of vertex $v_{k}$}
+indexes = $Neighbors\ of\ vertex\ v_{i}\ based\ on\ lengths\ t$\;
+i = $random(indexes)$\;
+
+\Return{$i$}
+\end{algorithm}
+%algorithm2
+\begin{algorithm}
+\caption{DeepWalk($G$,$w$,$d$,$\gamma$,t)}\label{algorithm}
+
+\KwIn{graph G(V,E)\\\qquad\quad\ \ window size $w$\\\qquad\quad\ \ embedding size $d$\\\qquad\quad\ \ walks per vertex 
+$\gamma$\\\qquad\quad\ \ walk length $t$}
+\KwOut{matrix of vertex representations $\Phi \in \mathbb{R}^{|V|\times d}$}
+
+Initialization: Sample $\Phi$ from $\mathcal{U}^{|V|\times d}$\\
+Build a binary Tree $T$ from $V$\\
+\For{$i=0\ \KwTo\ \gamma$}{
+	$\mathcal{O}$ = Shuffle($V$)\\
+		\ForEach{$v_{i}\in \mathcal{O}$}{
+			$\mathcal{W}_{v_{i}}=RandomWalk(G,v_{i},t)$\\
+			SkipGram($\Phi,\mathcal{W}_{v_{i}},w$)\\
+		}
+}
+\end{algorithm}
+%algorithm3
+\begin{algorithm}
+\caption{SkipGram($\Phi,\mathcal{W}_{v_{i}},w$)}
+\For{$v_{j}\in \mathcal{W}_{v_{i}}$}{
+	\For{$u\in \mathcal{W}_{v_{i}}[j-w:j+w]$}{
+		$J(\Phi)=-\log{\Pr(u_{k}|\Phi(v_{j}))}$\\
+		$\Phi=\Phi-\alpha \ast \frac{\partial J}{\partial \Phi}$
+	}
+}
+\end{algorithm}
+\end{document}
