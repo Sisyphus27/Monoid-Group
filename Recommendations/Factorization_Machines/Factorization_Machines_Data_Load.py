@@ -61,7 +61,7 @@ class MovieLens1MDataset(Dataset):
         https://grouplens.org/datasets/movielens
     """
 
-    def __init__(self, dataset_path, sep=',', engine='c', header='infer'):
+    def __init__(self, dataset_path, sep='::', engine='python', header=None):
         data = pd.read_csv(dataset_path, sep=sep, engine=engine, header=header).to_numpy()[:, :3]
         self.items = data[:, :2].astype(np.int) - 1
         self.targets = self.__preprocess_target(data[:, 2]).astype(np.float32)
