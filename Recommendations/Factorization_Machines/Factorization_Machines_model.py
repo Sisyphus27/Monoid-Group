@@ -81,12 +81,3 @@ class FactorizationMachineModel(nn.Module):
         """
         x = self.linear(x) + self.fm(self.embedding(x))
         return torch.sigmoid(x.squeeze(1))
-
-def get_loss(predict,classLabels):
-    m=np.shape(predict)[0]
-    cost=[]
-    error=0.0
-    for i in range(m):
-        error-=np.log(torch.sigmoid(predict[i]*classLabels[i]))
-        cost.append(error)
-    return error
