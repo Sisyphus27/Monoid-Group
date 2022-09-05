@@ -14,7 +14,7 @@ from sklearn.metrics import roc_auc_score
 from torch.utils.data import DataLoader
 from Recommendations.Factorization_Machines.Factorization_Machines_Data_Load import \
     MovieLens1MDataset
-from Field_aware_Factorization_Machines_Model import FieldAwareFactorizationMachine
+from Field_aware_Factorization_Machines_Model import FieldAwareFactorizationMachineModel
 
 
 def get_dataset(name, path):
@@ -27,7 +27,7 @@ def get_dataset(name, path):
 def get_model(name, dataset: MovieLens1MDataset):
     field_dims = dataset.field_dims
     try:
-        return FieldAwareFactorizationMachine(field_dims, embed_dim=16)
+        return FieldAwareFactorizationMachineModel(field_dims,embed_dim=16)
     except ValueError:
         print("unknown model name {}".format(name))
 

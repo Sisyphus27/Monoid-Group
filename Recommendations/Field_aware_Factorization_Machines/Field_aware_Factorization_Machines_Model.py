@@ -7,31 +7,31 @@
 @ide    : PyCharm
 @time   : 2022/8/31 11:18
 """
+import numpy as np
 import torch
+from Recommendations.Layer_Model import FieldAwareFactorizationMachine, FeaturesLinear
 
-from Recommendations.Factorization_Machines.Factorization_Machines_model import \
-    FeaturesEmbedding, FeaturesLinear
 import torch.nn as nn
 
 
-class FieldAwareFactorizationMachine(nn.Module):
+class FieldAwareFactorizationMachineModel(nn.Module):
+    """
+    A pytorch implementation of Field-aware Factorization Machine.
+
+    Reference:
+        Y Juan, et al. Field-aware Factorization Machines for CTR Prediction, 2015.
+    """
+
     def __init__(self, field_dims, embed_dim):
-        super().__init__()
-        input_dim = sum(field_dims)
-        self.num_fields = len(field_dims)
+        super(FieldAwareFactorizationMachineModel, self).__init__()
         self.linear = FeaturesLinear(field_dims)
-        # self.linear=FFM_FeatureLinear(field_dims=field_dims)
-        self.embeddings = nn.ModuleList([
-            nn.Embedding(input_dim + 1, embed_dim) for _ in range(self.num_fields)
-        ])
+        self.ffm = FieldAwareFactorizationMachine(field_dims, embed_dim)
 
     def forward(self, x):
-        xs = [self.embeddings[i](x) for i in range(self.num_fields)]
-        ix = []
-        for i in range(self.num_fields - 1):
-            for j in range(i + 1, self.num_fields):
-                ix.append(xs[j][:, i] * xs[i][:, j])
-        ix = torch.stack(ix, dim=1)
-        ffm = torch.sum(ix, (1, 2))
-        x = self.linear(x).squeeze(1) + ffm
-        return x
+        """
+        :param x: Long tensor of size ``(batch_size, num_fields)``
+        :return:
+        """
+        ffm_term = torch.sum(torch.sum(self.ffm(x), dim=1), dim=1, keepdim=True)
+        x = self.linear(x) + ffm_term
+        return torch.sigmoid(x.squeeze(1))
