@@ -3,17 +3,19 @@
 """
 @project : Monoid-Group
 @author  : zy
-@file   : Factorization_Machines_TT.py
+@file   : Field_aware_Factorization_Machines_TT.py
 @ide    : PyCharm
-@time   : 2022/8/30 14:57
+@time   : 2022/9/5 10:41
 """
 import torch
 import torch.nn as nn
 import tqdm
 from sklearn.metrics import roc_auc_score
 from torch.utils.data import DataLoader
-from Factorization_Machines_Data_Load import MovieLens1MDataset
-from Factorization_Machines_model import FactorizationMachineModel
+from Recommendations.Factorization_Machines.Factorization_Machines_Data_Load import \
+    MovieLens1MDataset
+from Field_aware_Factorization_Machines_Model import FieldAwareFactorizationMachine
+
 
 def get_dataset(name, path):
     try:
@@ -22,10 +24,10 @@ def get_dataset(name, path):
         print("No such {} dataset".format(name))
 
 
-def get_model(name, dataset):
+def get_model(name, dataset: MovieLens1MDataset):
     field_dims = dataset.field_dims
     try:
-        return FactorizationMachineModel(field_dims, embed_dim=16)
+        return FieldAwareFactorizationMachine(field_dims, embed_dim=16)
     except ValueError:
         print("unknown model name {}".format(name))
 
@@ -95,14 +97,17 @@ def main(dataset_name,
     valid_length = int(len(dataset) * 0.1)
     test_length = len(dataset) - train_length - valid_length
     train_dataset, valid_dataset, test_dataset = torch.utils.data.random_split(
-        dataset, (train_length, valid_length, test_length))
+        dataset, (train_length, valid_length, test_length)
+    )
     train_data_loader = DataLoader(train_dataset, batch_size=batch_size, num_workers=8)
     valid_data_loader = DataLoader(valid_dataset, batch_size=batch_size, num_workers=8)
     test_data_loader = DataLoader(test_dataset, batch_size=batch_size, num_workers=8)
+
     model = get_model(model_name, dataset).to(device)
-    criterion = torch.nn.BCELoss()
+    criterion = nn.MSELoss()
     optimizer = torch.optim.Adam(params=model.parameters(), lr=learning_rate, weight_decay=weight_decay)
     early_stopper = EarlyStopper(num_trials=2, save_path=f'{save_dir}/{model_name}.pt')
+
     for epoch_i in range(epoch):
         train(model, optimizer, train_data_loader, criterion, device)
         auc = test(model, valid_data_loader, device)
@@ -119,7 +124,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--dataset_name', default='movielens1M')
-    parser.add_argument('--dataset_path', default='./ml-1m/ratings.dat',
+    parser.add_argument('--dataset_path', default='../Factorization_Machines/ml-1m/ratings.dat',
                         help='criteo/train.txt, avazu/train, or ml-1m/ratings.dat')
     parser.add_argument('--model_name', default='fm')
     parser.add_argument('--epoch', type=int, default=100)
