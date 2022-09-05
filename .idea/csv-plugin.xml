@@ -3,6 +3,20 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="\Recommendations\Factorization_Machines\Titanic-data\gender_submission.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\Recommendations\Factorization_Machines\Titanic-data\test.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\Recommendations\Factorization_Machines\Titanic-data\train.csv">
           <value>
             <Attribute>
