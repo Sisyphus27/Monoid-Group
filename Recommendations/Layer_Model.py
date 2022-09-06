@@ -88,3 +88,25 @@ class FieldAwareFactorizationMachine(nn.Module):
                 ix.append(xs[j][:, i] * xs[i][:, j])
         ix = torch.stack(ix, dim=1)
         return ix
+
+
+class MultiLayerPerceptron(nn.Module):
+    def __init__(self, input_dim, embed_dims, dropout, output_layer=True):
+        super(MultiLayerPerceptron, self).__init__()
+        layers = list()
+        for embed_dim in embed_dims:
+            layers.append(nn.Linear(input_dim, embed_dim))
+            layers.append(nn.BatchNorm1d(embed_dim))
+            layers.append(nn.ReLU())
+            layers.append(nn.Dropout(p=dropout))
+            input_dim = embed_dim
+        if output_layer:
+            layers.append(nn.Linear(input_dim, 1))
+        self.mlp = nn.Sequential(*layers)
+
+    def forward(self, x):
+        """
+        :param x: Float tensor of size ''(batch_size, embed_dim)''
+        :return:
+        """
+        return self.mlp(x)
