@@ -110,3 +110,26 @@ class MultiLayerPerceptron(nn.Module):
         :return:
         """
         return self.mlp(x)
+
+
+class CrossNetwork(nn.Module):
+    def __init__(self, input_dim, num_layers):
+        super(CrossNetwork, self).__init__()
+        self.num_layers = num_layers
+        self.w = nn.ModuleList([
+            nn.Linear(input_dim, 1, bias=False) for _ in range(self.num_layers)
+        ])
+        self.b = nn.ParameterList([
+            nn.Parameter(torch.zeros((input_dim,))) for _ in range(self.num_layers)
+        ])
+
+    def forward(self, x):
+        """
+        :param x: Float tensor of size ``(batch_size, num_fields, embed_dim)``
+        :return:
+        """
+        x0 = x
+        for i in range(self.num_layers):
+            xw = self.w[i](x)
+            x = x0 * xw + self.b[i] + x
+        return x

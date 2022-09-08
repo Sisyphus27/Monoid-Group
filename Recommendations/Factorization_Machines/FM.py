@@ -8,10 +8,9 @@
 @time   : 2022/8/23 15:37
 """
 from Factorization_Machines_model import FactorizationMachineModel
-from Factorization_Machines_Data_Load import Load_titanic_train_data
-from Factorization_Machines_Data_Load import Load_unKnow_data
-from Factorization_Machines_Data_Load import Unknow_data_torch_load
-import torch
+from Recommendations.Recommendations_Data_Load import Load_titanic_train_data
+from Recommendations.Recommendations_Data_Load import Load_unKnow_data
+from Recommendations.Recommendations_Data_Load import Unknow_data_torch_load
 import numpy as np
 
 # a = [
