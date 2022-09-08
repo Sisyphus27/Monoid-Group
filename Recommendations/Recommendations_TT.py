@@ -3,7 +3,7 @@
 """
 @project : Monoid-Group
 @author  : zy
-@file   : DeepFM_TT.py
+@file   : Recommendations_TT.py
 @ide    : PyCharm
 @time   : 2022/9/6 11:27
 """
@@ -12,9 +12,13 @@ import torch.nn as nn
 import tqdm
 from sklearn.metrics import roc_auc_score
 from torch.utils.data import DataLoader
-from Recommendations.Factorization_Machines.Factorization_Machines_Data_Load import \
+from Recommendations.Recommendations_Data_Load import \
     MovieLens1MDataset
-from DeepFM_Model import DeepFactorizationMachineModel
+from DeepFM.DeepFM_Model import DeepFactorizationMachineModel
+from Factorization_Machines.Factorization_Machines_model import FactorizationMachineModel
+from Field_aware_Factorization_Machines.Field_aware_Factorization_Machines_Model import \
+    FieldAwareFactorizationMachineModel
+from Deep_Cross_Network.Deep_Cross_Network_Model import DeepCrossNetworkModel
 
 
 def get_dataset(name, path):
@@ -27,7 +31,15 @@ def get_dataset(name, path):
 def get_model(name, dataset: MovieLens1MDataset):
     field_dims = dataset.field_dims
     try:
-        return DeepFactorizationMachineModel(field_dims, embed_dim=16, mlp_dims=(16, 16), dropout=0.2)
+        if name == 'fm':
+            return FactorizationMachineModel(field_dims, embed_dim=16)
+        elif name == 'ffm':
+            return FieldAwareFactorizationMachineModel(field_dims, embed_dim=4)
+        elif name == 'dcn':
+            return DeepCrossNetworkModel(field_dims, embed_dim=16, num_layers=3, mlp_dims=(16, 16), dropout=0.2)
+        elif name == 'dfm':
+            return DeepFactorizationMachineModel(field_dims, embed_dim=16, mlp_dims=(16, 16), dropout=0.2)
+
     except ValueError:
         print("unknown model name {}".format(name))
 
@@ -124,9 +136,9 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--dataset_name', default='movielens1M')
-    parser.add_argument('--dataset_path', default='../Factorization_Machines/ml-1m/ratings.dat',
+    parser.add_argument('--dataset_path', default='./ml-1m/ratings.dat',
                         help='criteo/train.txt, avazu/train, or ml-1m/ratings.dat')
-    parser.add_argument('--model_name', default='fm')
+    parser.add_argument('--model_name', default='dcn')
     parser.add_argument('--epoch', type=int, default=100)
     parser.add_argument('--learning_rate', type=float, default=0.001)
     parser.add_argument('--batch_size', type=int, default=2048)
