@@ -19,6 +19,7 @@ from Factorization_Machines.Factorization_Machines_model import FactorizationMac
 from Field_aware_Factorization_Machines.Field_aware_Factorization_Machines_Model import \
     FieldAwareFactorizationMachineModel
 from Deep_Cross_Network.Deep_Cross_Network_Model import DeepCrossNetworkModel
+from Neural_Factorization_Machines.Neural_Factorization_Machines_Model import NeuralFactorizationMachineModel
 
 
 def get_dataset(name, path):
@@ -39,6 +40,8 @@ def get_model(name, dataset: MovieLens1MDataset):
             return DeepCrossNetworkModel(field_dims, embed_dim=16, num_layers=3, mlp_dims=(16, 16), dropout=0.2)
         elif name == 'dfm':
             return DeepFactorizationMachineModel(field_dims, embed_dim=16, mlp_dims=(16, 16), dropout=0.2)
+        elif name == 'nfm':
+            return NeuralFactorizationMachineModel(field_dims, embed_dim=64, mlp_dims=(64,), dropouts=(0.2, 0.2))
 
     except ValueError:
         print("unknown model name {}".format(name))
@@ -138,13 +141,14 @@ if __name__ == '__main__':
     parser.add_argument('--dataset_name', default='movielens1M')
     parser.add_argument('--dataset_path', default='./ml-1m/ratings.dat',
                         help='criteo/train.txt, avazu/train, or ml-1m/ratings.dat')
-    parser.add_argument('--model_name', default='dcn')
+    parser.add_argument('--model_name', default='nfm')
     parser.add_argument('--epoch', type=int, default=100)
     parser.add_argument('--learning_rate', type=float, default=0.001)
     parser.add_argument('--batch_size', type=int, default=2048)
     parser.add_argument('--weight_decay', type=float, default=1e-6)
     parser.add_argument('--save_dir', default='./')
     args = parser.parse_args(args=[])
+    print(args.model_name)
     main(args.dataset_name,
          args.dataset_path,
          args.model_name,
