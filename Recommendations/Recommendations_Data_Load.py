@@ -79,3 +79,7 @@ class MovieLens1MDataset(Dataset):
         target[target <= 3] = 0
         target[target > 3] = 1
         return target
+
+class MovieLens20MDataset(MovieLens1MDataset):
+    def __init__(self,dataset_path):
+        super(MovieLens20MDataset, self).__init__(dataset_path,sep=',',engine='c',header='infer')
