@@ -24,6 +24,20 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\Recommendations\ml-20m\genome-tags.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\Recommendations\ml-20m\ratings.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
