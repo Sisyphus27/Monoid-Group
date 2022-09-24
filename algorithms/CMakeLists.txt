@@ -3,4 +3,4 @@ project(Monoid-Group)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Monoid-Group main.cpp)
+add_executable(Monoid-Group main.cpp C1-Basic-concepts/algorithm-1.1.cpp C1-Basic-concepts/algorithm-1.1.h)
