@@ -5,6 +5,8 @@
 #include "mathematical_preliminaries_1_2.h"
 
 std::vector<int> Extended_Euclids_algorithm(int m, int n) {
+    // base on page-13
+    // return a equation am + bn = d
     int a1 = 1, b = 1;
     int a = 0, b1 = 0;
     if (n > m)
