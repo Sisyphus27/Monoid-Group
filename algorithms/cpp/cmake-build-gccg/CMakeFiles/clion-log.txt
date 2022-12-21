@@ -1,0 +1,4 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/usr/bin/make -DCMAKE_C_COMPILER=/opt/homebrew/Cellar/gcc/12.2.0/bin/gcc-12 -DCMAKE_CXX_COMPILER=/opt/homebrew/Cellar/gcc/12.2.0/bin/g++-12 -G "CodeBlocks - Unix Makefiles" -S /Users/zy/.ssh/Monoid-Group/algorithms/cpp -B /Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg

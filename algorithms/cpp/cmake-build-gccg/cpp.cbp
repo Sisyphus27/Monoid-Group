@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="cpp"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cpp">
+				<Option output="/Users/zy/.ssh/Monoid-Group/algorithms/cpp/bin/cpp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/zy/.ssh/Monoid-Group/algorithms/cpp/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/zy/.ssh/Monoid-Group/algorithms/cpp/include"/>
+					<Add directory="/opt/homebrew/Cellar/gcc/12.2.0/bin/../lib/gcc/current/gcc/aarch64-apple-darwin22/12/../../../../../../include/c++/12"/>
+					<Add directory="/opt/homebrew/Cellar/gcc/12.2.0/bin/../lib/gcc/current/gcc/aarch64-apple-darwin22/12/../../../../../../include/c++/12/aarch64-apple-darwin22"/>
+					<Add directory="/opt/homebrew/Cellar/gcc/12.2.0/bin/../lib/gcc/current/gcc/aarch64-apple-darwin22/12/../../../../../../include/c++/12/backward"/>
+					<Add directory="/opt/homebrew/Cellar/gcc/12.2.0/bin/../lib/gcc/current/gcc/aarch64-apple-darwin22/12/include"/>
+					<Add directory="/opt/homebrew/Cellar/gcc/12.2.0/bin/../lib/gcc/current/gcc/aarch64-apple-darwin22/12/include-fixed"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX13.sdk/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX13.sdk/System/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg/Makefile&quot;  VERBOSE=1 cpp"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cpp/fast">
+				<Option output="/Users/zy/.ssh/Monoid-Group/algorithms/cpp/bin/cpp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/zy/.ssh/Monoid-Group/algorithms/cpp/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/zy/.ssh/Monoid-Group/algorithms/cpp/include"/>
+					<Add directory="/opt/homebrew/Cellar/gcc/12.2.0/bin/../lib/gcc/current/gcc/aarch64-apple-darwin22/12/../../../../../../include/c++/12"/>
+					<Add directory="/opt/homebrew/Cellar/gcc/12.2.0/bin/../lib/gcc/current/gcc/aarch64-apple-darwin22/12/../../../../../../include/c++/12/aarch64-apple-darwin22"/>
+					<Add directory="/opt/homebrew/Cellar/gcc/12.2.0/bin/../lib/gcc/current/gcc/aarch64-apple-darwin22/12/../../../../../../include/c++/12/backward"/>
+					<Add directory="/opt/homebrew/Cellar/gcc/12.2.0/bin/../lib/gcc/current/gcc/aarch64-apple-darwin22/12/include"/>
+					<Add directory="/opt/homebrew/Cellar/gcc/12.2.0/bin/../lib/gcc/current/gcc/aarch64-apple-darwin22/12/include-fixed"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX13.sdk/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX13.sdk/System/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg/Makefile&quot;  VERBOSE=1 cpp/fast"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/zy/.ssh/Monoid-Group/algorithms/cpp/Ssort.cpp">
+			<Option target="cpp"/>
+		</Unit>
+		<Unit filename="/Users/zy/.ssh/Monoid-Group/algorithms/cpp/Ssort.h">
+			<Option target="cpp"/>
+		</Unit>
+		<Unit filename="/Users/zy/.ssh/Monoid-Group/algorithms/cpp/main.cpp">
+			<Option target="cpp"/>
+		</Unit>
+		<Unit filename="/Users/zy/.ssh/Monoid-Group/algorithms/cpp/utils.h">
+			<Option target="cpp"/>
+		</Unit>
+		<Unit filename="/Users/zy/.ssh/Monoid-Group/algorithms/cpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
