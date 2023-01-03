@@ -102,7 +102,7 @@ public class Sort {
      * @param arr
      * @return
      */
-    private static int[] mergeSort(int[] arr, int p, int q, int r) {
+    static int[] mergeSort(int[] arr, int p, int q, int r) {
         int ln = q - p + 1;
         int rn = r - q;
         int[] L = new int[ln];
