@@ -1,3 +1,0 @@
-/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg/CMakeFiles/cpp.dir
-/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg/CMakeFiles/edit_cache.dir
-/Users/zy/.ssh/Monoid-Group/algorithms/cpp/cmake-build-gccg/CMakeFiles/rebuild_cache.dir
